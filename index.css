@@ -1,0 +1,613 @@
+/*
+ * @Author: pycoder.Junting
+ * @Date: 2018-05-16 16:31:05
+ * @Last Modified by: pycoder.Junting
+ * @Last Modified time: 2018-05-16 22:31:58
+ */
+body {
+    margin: 0;
+    padding: 0;
+    font: 12px Tahoma, arial, sans-serif;
+}
+
+/* 主题 */
+header {
+    font-family: 'Segoe UI Light','Segoe UI','Microsoft Jhenghei','微软雅黑',sans-serif;
+	color: #666;
+	font-size: 50px;
+	text-align: center;
+	margin-top:50px;
+}
+.team {
+	font-size: 0.6em;
+}
+
+.team a{
+	color:#5FB7E9;
+	text-decoration: none;
+}
+
+.team a:hover{
+	color:#4B9BC9;
+}
+
+/**
+ * QQ Logo 绘制
+ */
+#qq {
+    position: relative;
+    margin: 0 auto;
+    width: 420px;
+    height: 400px;
+    /* outline: gold solid 2px; */
+}
+
+ /* QQ head */
+.head {
+    position: absolute;
+    top: 18px;
+    left: 96px;
+    width: 234px;
+    height: 185px;
+    border: 1px solid #000;
+    border-top-left-radius: 117px 117px;
+    border-top-right-radius: 117px 117px;
+    border-bottom-left-radius: 117px 68px;
+    border-bottom-right-radius: 117px 68px;
+    background: #000;
+    z-index:10;
+}
+
+/* QQ head -> eye */
+.eye {
+    position: absolute;
+    width: 44px;
+    height: 66px;
+    border:1px solid #000;
+    border-radius: 50% 50%;
+    background: #fff;
+}
+
+.left.eye {
+    left: 62px;
+    top: 50px;
+}
+
+.right.eye {
+    left: 132px;
+    top: 50px;
+}
+
+.innerLeftEye {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 18px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background: #000;
+}
+
+.innerLeftEye::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 9px;
+    width: 6px;
+    z-index: 11;
+    height: 8px;
+    /* border: 1px solid #000; */
+    border-radius: 50%;
+    background: #fff;
+}
+
+.innerRightEye {
+    position: absolute;
+    top: 20px;
+    left: 8px;
+    /* 月牙眼球外轮廓 */
+    width: 18px;
+    height: 24px;
+    /* border: 1px solid #000; */
+    border-top-left-radius: 50% 90%;
+    border-top-right-radius: 50% 90%;
+    border-bottom-left-radius: 50% 10%;
+    border-bottom-right-radius: 50% 10%;
+    background: black;
+    box-shadow: 0 -1px 2px black;
+}
+
+.innerRightEye::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+	left: 4px;
+    /* 月牙眼球内部轮廓 */
+    width: 10px;
+    height: 13px;
+    /* border: 1px solid #000; */
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 35% 80%;
+    background: #FFF;
+}
+
+.fix {
+    position: absolute;
+    top: 19px;
+    width: 4px;
+    height: 4px;
+    /* border: 1px solid #000; */
+    border-radius: 50%;
+    background: #000;
+}
+
+.fix:after{
+	content: "";
+    position: absolute;
+    top: 0;
+	left: 14px;
+	width: 4px;
+    height: 4px;
+    /* border: 1px solid #000; */
+    border-radius: 50%;
+    background: black;
+}
+
+/* QQ head -> mouth */
+.mouthTopContainer {
+    /* 定位 */
+    position: absolute;
+    top: 120px;
+    left: 39px;
+    z-index: 1;
+    width: 158px;
+    height: 29px;
+    overflow: hidden; /* 隐藏超出部分 */
+}
+
+.mouthTop {
+    /* 上嘴唇轮廓 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 158px;
+    height: 34px;
+    border: 1px solid #FFA600;
+    border-top-left-radius: 45% 34px;
+    border-top-right-radius: 45% 34px;
+    background: #FFA600;
+}
+
+.mouthBottomContainer {
+    position: absolute;
+    top: 146px;
+    left: 39px;
+    z-index: 1;
+    width: 158px;
+    height: 15px;
+    overflow: hidden;   /* 隐藏超出部分 */
+}
+
+.mouthBottom {
+    position: absolute;
+    top: -4px;
+    left: 0;
+    z-index: 1;
+    width: 158px;
+    height: 24px;
+    border: 1px solid #FFA600;
+    border-top:none;
+    border-bottom-left-radius: 45% 24px;
+    border-bottom-right-radius: 45% 24px;
+    background: #FFA600;
+}
+
+/* 嘴唇上下层次感-咬合部位 */
+.lispContainer {
+    /* 定位 */
+    position: absolute;
+	top: 146px;
+	left: 60px;
+    width: 116px;
+    height: 24px;
+}
+
+.lips {
+    position: absolute;
+	top: 0;
+	left: 0;
+    width: 116px;
+    height: 24px;
+    border: 1px solid #FFA600;
+    border-bottom-left-radius: 50% 100%;
+    border-bottom-right-radius: 50% 100%;
+    background: #FFA600;
+}
+
+.lipShadow {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-right: 8px solid black;
+	transform-origin: top right;
+    transform: rotate(-60deg);
+    z-index: 2;
+}
+
+.lipShadow.left {
+    top: 4px;
+    left: -12px;
+    transform: rotate(-60deg);
+}
+
+.lipShadow.right {
+    top: 4px;
+    left: 111px;
+    transform: rotate(60deg) rotateY(180deg);
+}
+
+/* QQ body */
+.body {
+    /* body 容器定位 */
+    position: absolute;
+    top: 135px;
+    left: 48px;
+    width: 326px;
+    height: 300px;
+    /* border: 1px solid #000; */
+}
+
+/* QQ body -> scarf */
+.scarf {
+    position: absolute;
+    top: -2px;
+    left: 34px;
+    z-index: 5;
+    width: 258px;
+    height: 110px;
+    border: 4px solid #000;
+    border-top-left-radius: 30px 34px;
+	border-top-right-radius: 38px 34px;
+	border-bottom-left-radius: 50% 76px;
+    border-bottom-right-radius: 50% 76px;
+    border-top: none;
+    background: #FB0009;
+}
+
+.scarfShadowLeft {
+    position: absolute;
+    top: 0px;
+	left: 6px;
+	width: 60px;
+    height: 70px;
+    /* border: 4px solid #000; */
+    border-top: 6px solid #000;
+	border-top-left-radius: 90px 120px;
+    border-top-right-radius: 30px 30px;
+	transform: rotate(-79deg);
+}
+
+.scarfShadowRight {
+    position: absolute;
+    top: 8px;
+	left: 143px;
+	width: 100px;
+    height: 70px;
+    /* border: 4px solid #000; */
+    border-right: 6px solid black;
+	width: 100px;
+    border-bottom-right-radius: 70px 70px;
+    border-right: 6px solid black;
+}
+
+/* QQ body -> scarfEnd */
+.scarfEnd {
+    position: absolute;
+    left: 74px;
+    top: 90px;
+	width: 52px;
+    height: 64px;
+    border: 3px solid black;
+    border-bottom-left-radius: 50% 43%;
+	border-bottom-right-radius: 15px;
+    border-top-left-radius: 20% 57%;
+    background: #FB0009;
+    z-index: 4;
+}
+
+.scarfEndShadow {
+    position: absolute;
+    top: 6px;
+	left: 12px;
+	width: 20px;
+    height: 20px;
+    /* border: 4px solid #000; */
+    border-top: 6px solid #000;
+    border-top-left-radius: 30px 30px;
+    transform-origin: top right;
+    transform: skewX(4deg) scaleY(1.5) rotate(-60deg);
+}
+
+/* QQ body -> innerWrapper */
+.innerWrapper {
+    /* innerWrapper 容器定位 */
+    position: absolute;
+    left: 30px;
+	top: 76px;
+    width: 280px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.inner {
+    position: absolute;
+    left: 25px;
+	top: -71px;
+	width: 218px;
+	height: 210px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background: #fff;
+    z-index: 4;
+}
+
+/* QQ body -> outerWrapper */
+.outerWrapper{
+    /* outerWrapper 容器定位 */
+    position: absolute;
+	top: 54px;
+	overflow: hidden;
+    width: 262px;
+	left: 32px;
+    height: 250px;
+}
+
+.outer{
+    position: absolute;
+	top: -84px;
+	width: 260px;
+    height: 250px;
+    border: 1px solid #000;
+    border-radius: 125px;
+    background: #000;
+    z-index: 3;
+}
+
+/* QQ handWrapper */
+.handWrapper{
+    /* 定位手的起始点 */
+	position: absolute;
+	top: 219px;
+	left: 7px;
+}
+
+/* QQ handWrapper -left */
+.leftHandTopContainer {
+    /* 定位 */
+	position: absolute;
+	top: 55px;
+	left: 50px;
+    width: 118px;
+    height: 26px;
+    /* border: 1px solid #000; */
+	transform-origin: bottom left;
+    transform: rotate(-70deg);
+    overflow: hidden;
+}
+
+.leftHandTop {
+     /* 上半部分 */
+	width: 128px;
+	height: 54px;
+    border: 1px solid #050346;
+    border-top-left-radius: 44% 38px;
+    border-top-right-radius: 56% 33px;
+    background: #000;
+}
+
+.leftHandBottomContainer {
+    /* 定位 */
+    position: absolute;
+	top: 78px;
+	left: 50px;
+	width: 100px;
+    height: 30px;
+    /* border: 1px solid #000; */
+	transform-origin: top left;
+    transform: rotate(-70deg);
+    overflow: hidden;
+}
+
+.leftHandBottom {
+    position: absolute;
+    top: -26px;
+    width: 128px;
+	height: 44px;
+    border: 1px solid #050346;
+    border-bottom-left-radius: 48% 20px;
+    border-bottom-right-radius: 52% 23px;
+    background: #000;
+}
+
+/* QQ handWrapper -right */
+.rightHandTopContainer {
+    /* 定位 */
+    position: absolute;
+	top: 47px;
+	left: 240px;
+    width: 118px;
+    height: 34px;
+    /* border: 1px solid #000; */
+	transform-origin: bottom right;
+    transform: rotate(65deg);
+    overflow: hidden;
+}
+
+.rightHandTop {
+    position: absolute;
+    left: -30px;
+    width: 148px;
+	height: 54px;
+    border: 1px solid #050346;
+    border-top-right-radius: 41% 54px;
+    border-top-left-radius: 59% 48px;
+    background: #000;
+}
+
+.rightHandBottomContainer{
+    /* 定位 */
+    position: absolute;
+	top: 81px;
+    left: 248px;
+	width: 110px;
+	height: 58px;
+    /* border: 1px solid #000; */
+	transform-origin: top right;
+    transform: rotate(90deg);
+    overflow: hidden;
+}
+
+.rightHandBottom {
+    position: absolute;
+	top: 1px;
+	left: 38px;
+    width: 68px;
+	height: 28px;
+    border: 1px solid #000;
+    border-bottom-right-radius: 100% 40px;
+    background: #000;
+}
+
+/* QQ footerWrapper */
+.footWrapper{
+    /* 定位起始点 */
+	position: absolute;
+	top: 292px;
+    left: 80px;
+    width: 300px;
+    height: 80px;
+    /* border: 1px solid #000; */
+}
+
+.toe {
+    position: absolute;
+	width: 25px;
+	height: 20px;
+    /* border: 4px solid #000; */
+    border-top: 4px solid black;
+    border-top: 4px solid black;
+    border-top-right-radius: 30px 30px;
+    border-top-left-radius: 10px 10px;
+    transform-origin: top left;
+    z-index: 10;
+}
+
+/* QQ footerWrapper -> left */
+.leftFootTopWrapper {
+    /* 定位左脚上容器 */
+    position: absolute;
+	top: 16px;
+	left: -1px;
+    width: 130px;
+    height: 37px;
+    /* border: 1px solid #000; */
+    overflow: hidden;
+}
+
+.leftFootTop {
+    position: absolute;
+	top: -10px;
+    left: 3px;
+    width: 120px;
+	height: 60px;
+    border: 4px solid black;
+    border-top-left-radius: 80% 70%;
+    background: #FF9C00;
+}
+
+.toe.left {
+    top: 50px;
+    left: 2px;
+    transform: rotate(-45deg);
+}
+
+.leftFootBottomWrapper {
+    position: absolute;
+    top: 52px;
+	left: -1px;
+	width: 130px;
+	height: 38px;
+    /* border: 1px solid #000; */
+    overflow: hidden;
+}
+
+.leftFootBottom {
+    position: absolute;
+    top: -30px;
+	left: 3px;
+    width: 120px;
+	height: 60px;
+    border: 4px solid #000;
+    border-top-left-radius: 50% 44%;
+	border-top-right-radius: 50% 44%;
+	border-bottom-left-radius: 50% 56%;
+    border-bottom-right-radius: 50% 56%;
+    background: #FF9C00;
+}
+
+/* QQ footerWrapper -> right */
+.rightFootTopWrapper {
+    /* 定位左脚上容器 */
+    position: absolute;
+	top: 22px;
+	left: 134px;
+    width: 130px;
+    height: 38px;
+    /* border: 1px solid #000; */
+    overflow: hidden;
+}
+
+.rightFootTop {
+    position: absolute;
+    top: 0px;
+	left: 4px;
+    width: 120px;
+	height: 60px;
+    border: 4px solid black;
+    border-top-right-radius: 32% 65%;
+    background: #FF9C00;
+}
+
+.toe.right {
+    top: 50px;
+    left: 264px;
+    transform: rotate(45deg) rotateY(180deg);
+}
+
+.rightFootBottomWrapper {
+    position: absolute;
+    top: 52px;
+	left: 134px;
+	width: 134px;
+    height: 38px;
+    /* border: 1px solid #000; */
+    overflow: hidden;
+}
+
+.rightFootBottom {
+    position: absolute;
+    top: -30px;
+	left: 3px;
+    width: 120px;
+	height: 60px;
+    border: 4px solid #000;
+    border-top-left-radius: 50% 56%;
+	border-top-right-radius: 50% 56%;
+	border-bottom-left-radius: 50% 44%;
+    border-bottom-right-radius: 50% 44%;
+    background: #FF9C00;
+}
